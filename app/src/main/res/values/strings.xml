@@ -1,3 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Application -->
     <string name="app_name">SkillForge</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_tagline">Study Smarter.\nStay Organized.\nGrow Every Day.</string>
+
+    <string name="app_version">Version 0.1.0</string>
+
+    <!-- Accessibility -->
+    <string name="logo_description">SkillForge Logo</string>
+
 </resources>
