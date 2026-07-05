@@ -14,4 +14,29 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- Onboarding Page 1 -->
+    <string name="onboarding_title_1">Welcome to SkillForge</string>
+
+    <string name="onboarding_desc_1">
+    Study Smarter.
+    Stay Organized.
+    Grow Every Day.
+</string>
+
+    <!-- Onboarding Page 2 -->
+    <string name="onboarding_title_2">Manage Your Student Life</string>
+
+    <string name="onboarding_desc_2">
+    Track attendance, manage assignments,
+    organize notes and timetable in one place.
+</string>
+
+    <!-- Onboarding Page 3 -->
+    <string name="onboarding_title_3">Powered by AI</string>
+
+    <string name="onboarding_desc_3">
+    OCR Scanner, Smart Planner,
+    AI Study Assistant and much more.
+</string>
+
 </resources>
