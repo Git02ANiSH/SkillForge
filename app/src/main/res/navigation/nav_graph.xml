@@ -8,6 +8,17 @@
     <fragment
         android:id="@+id/onboardingFragment"
         android:name="com.skillforge.app.features.onboarding.OnboardingFragment"
-        android:label="Onboarding" />
+        android:label="Onboarding">
+
+        <action
+            android:id="@+id/action_onboardingFragment_to_loginFragment"
+            app:destination="@id/loginFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.skillforge.app.features.auth.LoginFragment"
+        android:label="Login"/>
 
 </navigation>

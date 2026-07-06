@@ -76,6 +76,12 @@ public class OnboardingFragment extends Fragment {
                         super.onPageSelected(position);
 
                         updateIndicator(position);
+
+                        if (position == pages.size() - 1) {
+                            binding.btnNext.setText("Get Started");
+                        } else {
+                            binding.btnNext.setText("Next");
+                        }
                     }
                 });
 
@@ -87,6 +93,12 @@ public class OnboardingFragment extends Fragment {
             if (current < pages.size() - 1) {
 
                 binding.viewPager.setCurrentItem(current + 1, true);
+
+            } else {
+
+                androidx.navigation.fragment.NavHostFragment
+                        .findNavController(OnboardingFragment.this)
+                        .navigate(R.id.action_onboardingFragment_to_loginFragment);
 
             }
 
