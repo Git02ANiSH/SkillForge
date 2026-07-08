@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-
+import com.skillforge.app.R;
 import com.skillforge.app.databinding.FragmentLoginBinding;
 
 public class LoginFragment extends Fragment {
@@ -93,6 +93,10 @@ public class LoginFragment extends Fragment {
                                 "Login Successful!",
                                 Toast.LENGTH_SHORT
                         ).show();
+
+                        androidx.navigation.fragment.NavHostFragment
+                                .findNavController(LoginFragment.this)
+                                .navigate(R.id.action_loginFragment_to_dashboardFragment);
 
                     } else {
 
