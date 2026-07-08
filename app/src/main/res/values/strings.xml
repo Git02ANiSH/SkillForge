@@ -39,4 +39,11 @@
     AI Study Assistant and much more.
 </string>
 
+    <string name="dashboard_greeting">Welcome Back 👋</string>
+    <string name="dashboard_progress">Today's Progress</string>
+    <string name="dashboard_quick_actions">Quick Actions</string>
+    <string name="dashboard_tasks">Today's Tasks</string>
+    <string name="dashboard_attendance">Attendance</string>
+    <string name="dashboard_streak">Study Streak</string>
+
 </resources>
