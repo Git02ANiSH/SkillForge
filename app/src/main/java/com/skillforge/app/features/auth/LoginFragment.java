@@ -11,11 +11,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+
 import com.skillforge.app.databinding.FragmentLoginBinding;
 
 public class LoginFragment extends Fragment {
 
     private FragmentLoginBinding binding;
+    private FirebaseAuth mAuth;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -35,6 +40,7 @@ public class LoginFragment extends Fragment {
                               @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        mAuth = FirebaseAuth.getInstance();
         binding.btnLogin.setOnClickListener(v -> validateLogin());
     }
 
@@ -77,7 +83,28 @@ public class LoginFragment extends Fragment {
         binding.emailLayout.setError(null);
         binding.passwordLayout.setError(null);
 
-        // Firebase login will be added here
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(requireActivity(), task -> {
+
+                    if (task.isSuccessful()) {
+
+                        Toast.makeText(
+                                requireContext(),
+                                "Login Successful!",
+                                Toast.LENGTH_SHORT
+                        ).show();
+
+                    } else {
+
+                        Toast.makeText(
+                                requireContext(),
+                                task.getException().getMessage(),
+                                Toast.LENGTH_LONG
+                        ).show();
+
+                    }
+
+                });
     }
 
     @Override

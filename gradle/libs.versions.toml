@@ -8,6 +8,10 @@ material = "1.14.0"
 activityKtx = "1.13.0"
 constraintlayout = "2.2.1"
 
+# Firebase
+googleServices = "4.4.3"
+firebaseAuth = "24.0.1"
+
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -17,6 +21,11 @@ material = { group = "com.google.android.material", name = "material", version.r
 activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "activityKtx" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
+# Firebase
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 
+# Google Services Plugin
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
