@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
+import com.skillforge.app.core.util.SessionManager;
 
 import com.skillforge.app.R;
 import com.skillforge.app.databinding.FragmentOnboardingBinding;
@@ -22,6 +23,7 @@ import java.util.List;
 public class OnboardingFragment extends Fragment {
 
     private FragmentOnboardingBinding binding;
+    private SessionManager sessionManager;
     private List<OnboardingPage> pages;
 
     public OnboardingFragment() {
@@ -41,6 +43,7 @@ public class OnboardingFragment extends Fragment {
     public void onViewCreated(@NonNull View view,
                               @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        sessionManager = new SessionManager(requireContext());
 
         pages = new ArrayList<>();
 
@@ -95,6 +98,8 @@ public class OnboardingFragment extends Fragment {
                 binding.viewPager.setCurrentItem(current + 1, true);
 
             } else {
+
+                sessionManager.setFirstLaunchCompleted();
 
                 androidx.navigation.fragment.NavHostFragment
                         .findNavController(OnboardingFragment.this)
