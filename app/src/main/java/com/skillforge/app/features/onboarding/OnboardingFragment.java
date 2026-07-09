@@ -71,6 +71,8 @@ public class OnboardingFragment extends Fragment {
         // Show first indicator
         updateIndicator(0);
 
+
+
         // Move indicator when page changes
         binding.viewPager.registerOnPageChangeCallback(
                 new ViewPager2.OnPageChangeCallback() {
@@ -108,6 +110,8 @@ public class OnboardingFragment extends Fragment {
             }
 
         });
+
+
     }
 
     /**

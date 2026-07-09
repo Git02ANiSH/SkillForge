@@ -4,6 +4,7 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/onboardingFragment">
 
+    <!-- Onboarding Fragment -->
     <fragment
         android:id="@+id/onboardingFragment"
         android:name="com.skillforge.app.features.onboarding.OnboardingFragment"
@@ -15,6 +16,7 @@
 
     </fragment>
 
+    <!-- Login Fragment -->
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.skillforge.app.features.auth.LoginFragment"
@@ -22,10 +24,13 @@
 
         <action
             android:id="@+id/action_loginFragment_to_dashboardFragment"
-            app:destination="@id/dashboardFragment" />
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/onboardingFragment"
+            app:popUpToInclusive="true" />
 
     </fragment>
 
+    <!-- Dashboard Fragment -->
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.skillforge.app.features.dashboard.DashboardFragment"
@@ -33,8 +38,19 @@
 
         <action
             android:id="@+id/action_dashboardFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_dashboardFragment_to_timetableFragment"
+            app:destination="@id/timetableFragment"/>
 
     </fragment>
+
+    <fragment
+        android:id="@+id/timetableFragment"
+        android:name="com.skillforge.app.features.timetable.TimetableFragment"
+        android:label="Timetable" />
 
 </navigation>

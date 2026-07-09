@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.navigation.NavOptions;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -94,10 +96,16 @@ public class LoginFragment extends Fragment {
                                 Toast.LENGTH_SHORT
                         ).show();
 
-                        androidx.navigation.fragment.NavHostFragment
-                                .findNavController(LoginFragment.this)
-                                .navigate(R.id.action_loginFragment_to_dashboardFragment);
+                        NavOptions navOptions = new NavOptions.Builder()
+                                .setPopUpTo(R.id.onboardingFragment, true)
+                                .build();
 
+                        NavHostFragment.findNavController(LoginFragment.this)
+                                .navigate(
+                                        R.id.action_loginFragment_to_dashboardFragment,
+                                        null,
+                                        navOptions
+                                );
                     } else {
 
                         Toast.makeText(
