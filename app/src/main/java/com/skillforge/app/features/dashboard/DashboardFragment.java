@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.skillforge.app.core.util.WindowInsetsHelper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,6 +40,7 @@ public class DashboardFragment extends Fragment {
     public void onViewCreated(@NonNull View view,
                               @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        WindowInsetsHelper.applyTopInset(binding.getRoot());
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -74,6 +76,27 @@ public class DashboardFragment extends Fragment {
 
             NavHostFragment.findNavController(DashboardFragment.this)
                     .navigate(R.id.action_dashboardFragment_to_timetableFragment);
+
+        });
+
+        binding.btnAttendance.setOnClickListener(v -> {
+
+            NavHostFragment.findNavController(DashboardFragment.this)
+                    .navigate(R.id.action_dashboardFragment_to_attendanceFragment);
+
+        });
+
+        binding.btnNotes.setOnClickListener(v -> {
+
+            NavHostFragment.findNavController(DashboardFragment.this)
+                    .navigate(R.id.action_dashboardFragment_to_notesFragment);
+
+        });
+
+        binding.btnAI.setOnClickListener(v -> {
+
+            NavHostFragment.findNavController(DashboardFragment.this)
+                    .navigate(R.id.action_dashboardFragment_to_aiMentorFragment);
 
         });
     }

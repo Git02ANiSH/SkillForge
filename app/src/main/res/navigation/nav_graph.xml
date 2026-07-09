@@ -4,7 +4,7 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/onboardingFragment">
 
-    <!-- Onboarding Fragment -->
+    <!-- Onboarding -->
     <fragment
         android:id="@+id/onboardingFragment"
         android:name="com.skillforge.app.features.onboarding.OnboardingFragment"
@@ -16,7 +16,7 @@
 
     </fragment>
 
-    <!-- Login Fragment -->
+    <!-- Login -->
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.skillforge.app.features.auth.LoginFragment"
@@ -30,7 +30,7 @@
 
     </fragment>
 
-    <!-- Dashboard Fragment -->
+    <!-- Dashboard -->
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.skillforge.app.features.dashboard.DashboardFragment"
@@ -44,13 +44,43 @@
 
         <action
             android:id="@+id/action_dashboardFragment_to_timetableFragment"
-            app:destination="@id/timetableFragment"/>
+            app:destination="@id/timetableFragment" />
+
+        <action
+            android:id="@+id/action_dashboardFragment_to_attendanceFragment"
+            app:destination="@id/attendanceFragment" />
+
+        <action
+            android:id="@+id/action_dashboardFragment_to_notesFragment"
+            app:destination="@id/notesFragment" />
+
+        <action
+            android:id="@+id/action_dashboardFragment_to_aiMentorFragment"
+            app:destination="@id/aiMentorFragment" />
 
     </fragment>
 
+    <!-- Timetable -->
     <fragment
         android:id="@+id/timetableFragment"
         android:name="com.skillforge.app.features.timetable.TimetableFragment"
         android:label="Timetable" />
+
+    <!-- Attendance -->
+    <fragment
+        android:id="@+id/attendanceFragment"
+        android:name="com.skillforge.app.features.attendance.AttendanceFragment"
+        android:label="Attendance" />
+    <!-- Notes -->
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.skillforge.app.features.notes.NotesFragment"
+        android:label="Notes" />
+
+    <!-- AI Mentor -->
+    <fragment
+        android:id="@+id/aiMentorFragment"
+        android:name="com.skillforge.app.features.ai.AiMentorFragment"
+        android:label="AI Mentor" />
 
 </navigation>

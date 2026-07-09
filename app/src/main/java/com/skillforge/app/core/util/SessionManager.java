@@ -21,4 +21,9 @@ public class SessionManager {
     public void setFirstLaunchCompleted() {
         preferences.edit().putBoolean(KEY_FIRST_LAUNCH, false).apply();
     }
+
+    // Reset onboarding (useful during development)
+    public void resetFirstLaunch() {
+        preferences.edit().putBoolean(KEY_FIRST_LAUNCH, true).apply();
+    }
 }

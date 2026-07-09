@@ -48,6 +48,10 @@ dependencies {
     implementation libs.material
     implementation libs.firebase.auth
 
+    // Room Database
+    implementation "androidx.room:room-runtime:2.7.2"
+    annotationProcessor "androidx.room:room-compiler:2.7.2"
+
     implementation "androidx.navigation:navigation-fragment:2.9.3"
     implementation "androidx.navigation:navigation-ui:2.9.3"
 

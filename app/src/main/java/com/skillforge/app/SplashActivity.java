@@ -1,32 +1,60 @@
 package com.skillforge.app;
 
-import android.os.Bundle;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
-import androidx.activity.EdgeToEdge;
+import android.os.Looper;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowCompat;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.skillforge.app.core.util.SessionManager;
 
 public class SplashActivity extends AppCompatActivity {
+
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), true);
+
         setContentView(R.layout.activity_splash);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        sessionManager = new SessionManager(this);
 
-        new Handler().postDelayed(() -> {
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+
+            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+            Intent intent;
+
+            if (currentUser != null) {
+
+                // User already logged in
+                intent = new Intent(SplashActivity.this, MainActivity.class);
+                intent.putExtra("start_destination", "dashboard");
+
+            } else if (!sessionManager.isFirstLaunch()) {
+
+                // Onboarding completed, go to Login
+                intent = new Intent(SplashActivity.this, MainActivity.class);
+                intent.putExtra("start_destination", "login");
+
+            } else {
+
+                // First launch
+                intent = new Intent(SplashActivity.this, MainActivity.class);
+                intent.putExtra("start_destination", "onboarding");
+
+            }
+
             startActivity(intent);
             finish();
-        }, 2000);
+
+        }, 1500);
     }
 }
