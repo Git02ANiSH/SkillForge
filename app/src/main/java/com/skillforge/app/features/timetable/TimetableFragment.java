@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.skillforge.app.features.timetable.dialog.AddSubjectDialog;
+
 import com.skillforge.app.databinding.FragmentTimetableBinding;
 
 public class TimetableFragment extends Fragment {
@@ -34,7 +36,7 @@ public class TimetableFragment extends Fragment {
 
         binding.fabAdd.setOnClickListener(v -> {
 
-            // Coming in Mission #22
+            AddSubjectDialog.show(requireContext());
 
         });
 
